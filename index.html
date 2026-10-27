@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MD Field Report Generator</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f0f4f8}
+.header{background:#0a2a5e;color:white;padding:20px;text-align:center}
+.logo{font-size:50px;font-weight:900;letter-spacing:2px} .logo b{color:#ff8c00}
+.card{background:white;margin:15px;padding:20px;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+input,select,textarea{width:100%;padding:13px;margin:7px 0 14px;border:1.5px solid #ddd;border-radius:10px;font-size:15px}
+label{font-weight:bold;font-size:13px;color:#0a2a5e}
+.btn{width:100%;padding:16px;background:#0a2a5e;color:white;border:none;border-radius:12px;font-weight:bold;font-size:17px}
+.btn2{background:#ff8c00;margin-top:12px}
+.report{white-space:pre-wrap;line-height:1.7;background:#fafafa;padding:15px;border-radius:10px;margin-top:10px;border:1px solid #eee}
+</style>
+</head>
+<body>
+<div class="header">
+<div class="logo">MD<b>⚡</b></div>
+<div style="margin-top:5px">MD FIELD REPORT GENERATOR - IPT PROJECT</div>
+<div style="font-size:12px;opacity:.8">National Institute of Transport | Mbeya Campus</div>
+</div>
+
+<div class="card">
+<label>JINA KAMILI</label>
+<input id="name" placeholder="Mf: Derick Mwaihola">
+<label>REG NO</label>
+<input id="reg" placeholder="NIT/BF/2023/...">
+<label>DEPARTMENT</label>
+<input id="dept" placeholder="Business Finance / Procurement">
+<label>KAMPUNI / HALMASHAURI</label>
+<input id="company" placeholder="Mbeya District Council">
+<label>WILAYA / MKOA</label>
+<input id="district" placeholder="Mbeya">
+<label>KAZI UZOFANYA FIELD (Eleza)</label>
+<textarea id="activity" rows="4" placeholder="Andika kazi ulizofanya field... mf: Nilikagua mapato, niliingiza data..."></textarea>
+<button class="btn" onclick="gen()">⚡ TENGENEZA REPORT SASA</button>
+<button class="btn btn2" onclick="window.print()">🖨️ PRINT / SAVE PDF</button>
+</div>
+
+<div class="card">
+<h3 style="color:#0a2a5e">📄 Report Yako Itatokea Hapa:</h3>
+<div id="out" class="report">Jaza fomu juu kisha bonyeza GENERATE...</div>
+</div>
+
+<script>
+function gen(){
+let n=document.getElementById('name').value||'Jina Lako';
+let r=document.getElementById('reg').value||'NIT/...';
+let d=document.getElementById('dept').value||'Department';
+let c=document.getElementById('company').value||'Kampuni';
+let dis=document.getElementById('district').value||'Mbeya';
+let a=document.getElementById('activity').value||'Kazi za field';
+document.getElementById('out').innerHTML=`MD FIELD REPORT - INDUSTRIAL PRACTICAL TRAINING (IPT)
+
+1. DECLARATION
+I, ${n} Reg No: ${r} from department of ${d}, declare that this field report is my own original work...
+
+2. TABLE OF CONTENTS
+CHAPTER ONE: INTRODUCTION
+CHAPTER TWO: ORGANIZATIONAL BACKGROUND
+CHAPTER THREE: ACTIVITIES PERFORMED
+CHAPTER FOUR: CHALLENGES
+CHAPTER FIVE: SOLUTIONS & EXPERIENCE
+CHAPTER SIX: CONCLUSION & RECOMMENDATION
+
+3. CHAPTER ONE - INTRODUCTION
+This report covers IPT conducted at ${c} located at ${dis} region...
+
+4. CHAPTER TWO - BACKGROUND OF ${c.toUpperCase()}
+${c} is found in ${dis} district. History, Vision, Mission...
+
+5. CHAPTER THREE - ACTIVITIES PERFORMED
+During my IPT at ${c}, I performed the following:
+${a}
+
+Also I learned: Budget preparation, Revenue collection, Customer service, Data entry...
+
+6. CHAPTER FOUR - CHALLENGES
+- Limited resources
+- Network problems
+- Shortage of working tools
+- Transportation challenges
+
+7. CHAPTER FIVE - SOLUTIONS
+I overcame by consulting supervisors, teamwork, using personal resources...
+
+8. CHAPTER SIX - CONCLUSION & RECOMMENDATION
+IPT was successful. I recommend ${c} to improve internship support, provide enough tools, and increase mentorship.
+
+Prepared by: ${n} | ${r} | ${d}
+MD FIELD GENERATOR © 2026
+`;
+window.scrollTo(0,document.body.scrollHeight);
+}
+</script>
+</body>
+</html>
